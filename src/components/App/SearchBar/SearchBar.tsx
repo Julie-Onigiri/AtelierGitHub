@@ -1,5 +1,6 @@
 import './index.scss';
 import React, { useState } from 'react';
+import axios from 'axios'; 
 
 type SearchBarProps = {
   onSearch: string;

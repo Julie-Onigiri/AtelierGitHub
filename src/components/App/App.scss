@@ -1,4 +1,6 @@
 .app {
+  display:flex;
+  flex-direction: column;
   width: 80vw;
   margin: 1em auto;
   text-align: center;
@@ -16,4 +18,18 @@
 
 body {
   background-color: rgb(61, 59, 59);
+}
+.result{
+  display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+}
+.search{
+  display: flex;
+
+  justify-content: space-between;
+}
+.form{
+  display: flex;
+  justify-content: space-between;
 }

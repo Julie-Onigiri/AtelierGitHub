@@ -1,4 +1,4 @@
-// import './index.scss';
+// import './ReposResult.scss';
 import repos from '../../../data/repos';
 // import { Repos } from '../../../@types';
 
