@@ -1,19 +1,30 @@
 import './index.scss';
 import React, { useState } from 'react';
-import axios from 'axios'; 
+import axios from 'axios';
 
 type SearchBarProps = {
-  onSearch: string;
+  onResults: (repos: any[]) => void;
+  onError: (error: string) => void;
 };
-function SearchBar({ onSearch }: SearchBarProps) {
+
+
+function SearchBar({ onResults, onError }: SearchBarProps) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-   onSearch(searchTerm);
+    try {
+      const response = await axios.get(
+        `https://api.github.com/search/repositories?q=${searchTerm}`
+      );
+      onResults(response.data.items);
+    } catch (error) {
+      onError('An error occurred while fetching data');
+    }
   };
 
   return (
@@ -26,11 +37,12 @@ function SearchBar({ onSearch }: SearchBarProps) {
             onChange={handleInputChange}
             className="search-form__input"
             type="text"
-            placeholder=" search "
+            placeholder="Search"
           />
         </div>
       </form>
     </section>
   );
 }
+
 export default SearchBar;
