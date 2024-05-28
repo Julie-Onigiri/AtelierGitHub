@@ -1,12 +1,10 @@
-import React from 'react';
-import { Message as SemanticMessage } from 'semantic-ui-react';
+// import './index.scss';
 
-type Props = {
-  content: string;
-};
-
-function Message({ content }: Props) {
-  return <SemanticMessage negative>{content}</SemanticMessage>;
+function Message() {
+  return (
+    <section className="message  ui raised segment">
+      <p className="message-text">Nombre de résultats affichés ici</p>
+    </section>
+  );
 }
-
 export default Message;

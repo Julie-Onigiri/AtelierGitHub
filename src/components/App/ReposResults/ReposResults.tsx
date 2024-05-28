@@ -1,38 +1,34 @@
-import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
-import './index.scss';
+// import './index.scss';
+import repos from '../../../data/repos';
+// import { Repos } from '../../../@types';
 
-type Owner = {
-  login: string;
-  avatar_url: string;
-};
+// type ResultsProps = {
+//   repos: Repos[];
+// };
+function ReposResults() {
+  const reposDisplay = repos.items[0];
 
-type Repo = {
-  id: number;
-  name: string;
-  owner: Owner;
-  description: string;
-};
-
-type Props = {
-  repos: Repo[];
-};
-
-function ReposResults({ repos }: Props) {
   return (
-    <Card.Group itemsPerRow={3} stackable>
-      {repos.map((repo) => (
-        <Card key={repo.id}>
-          <Card.Content>
-            <Image floated="right" size="mini" src={repo.owner.avatar_url} />
-            <Card.Header>{repo.name}</Card.Header>
-            <Card.Meta>{repo.owner.login}</Card.Meta>
-            <Card.Description>{repo.description}</Card.Description>
-          </Card.Content>
-        </Card>
-      ))}
-    </Card.Group>
+    <section className="result">
+      <article className="result-card ui card">
+        <figure className="result-card__figure image">
+          <img
+            className="result-card__img"
+            src={reposDisplay.owner.avatar_url}
+            alt=""
+          />
+        </figure>
+        <div className="result-card__content content">
+          <p className="result-card__title header">
+            {reposDisplay.owner.login}
+          </p>
+          <p className="result-card__subtitle meta">{reposDisplay.name}</p>
+          <p className="result-card__description description">
+            {reposDisplay.description}
+          </p>
+        </div>
+      </article>
+    </section>
   );
 }
-
 export default ReposResults;

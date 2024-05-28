@@ -2,10 +2,8 @@ import Header from './Header/Header';
 import SearchBar from './SearchBar/SearchBar';
 import Message from './Message/Message';
 import ReposResults from './ReposResults/ReposResults';
-
-import logo from '../../assets/images/logo-github.png';
-import Logo from '../../assets/logo.svg';
 import './App.scss';
+import logo from '../../assets/images/logo-github.png';
 
 function App() {
   return (
@@ -14,7 +12,7 @@ function App() {
 
       <SearchBar />
       <Message />
-      <ReposResults Logo={Logo} />
+      <ReposResults />
     </div>
   );
 }
