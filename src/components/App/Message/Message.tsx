@@ -1,6 +1,12 @@
-import './style.scss';
+import React from 'react';
+import { Message as SemanticMessage } from 'semantic-ui-react';
 
-function Message() {
-  return 'Message';
+type Props = {
+  content: string;
+};
+
+function Message({ content }: Props) {
+  return <SemanticMessage negative>{content}</SemanticMessage>;
 }
+
 export default Message;
