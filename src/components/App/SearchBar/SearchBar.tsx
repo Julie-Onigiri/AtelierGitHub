@@ -1,4 +1,4 @@
-import './index.scss';
+import './SearchBar.scss';
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -6,7 +6,6 @@ type SearchBarProps = {
   onResults: (repos: any[]) => void;
   onError: (error: string) => void;
 };
-
 
 function SearchBar({ onResults, onError }: SearchBarProps) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -30,7 +29,7 @@ function SearchBar({ onResults, onError }: SearchBarProps) {
   return (
     <section className="search ui raised segment">
       <form onSubmit={handleFormSubmit} className="search-form">
-        <div className="search-form__box ui left icon input">
+        <div className="search-form_box ui left icon input">
           <i aria-hidden="true" className="search-form__icon search icon" />
           <input
             value={searchTerm}

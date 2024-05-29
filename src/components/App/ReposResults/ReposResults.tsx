@@ -8,15 +8,13 @@ import repos from '../../../data/repos';
 function ReposResults() {
   const reposDisplay = repos.items.map((repo) => (
     <article className="result-card ui card" key={repo.id}>
-      <figure className="result-card__figure image">
-        <img className="result-card__img" src={repo.owner.avatar_url} alt="" />
+      <figure>
+        <img src={repo.owner.avatar_url} alt="" />
       </figure>
-      <div className="result-card__content content">
-        <p className="result-card__title header">{repo.owner.login}</p>
-        <p className="result-card__subtitle meta">{repo.name}</p>
-        <p className="result-card__description description">
-          {repo.description}
-        </p>
+      <div>
+        <p>{repo.owner.login}</p>
+        <p>{repo.name}</p>
+        <p>{repo.description}</p>
       </div>
     </article>
   ));
